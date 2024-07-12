@@ -1,0 +1,29 @@
+<ion-content>
+  <div class="logo-container">
+    <img class="image" src="/assets/image/Asset 1.png">
+  </div>
+  <div class="login-section ion-padding">
+    <div class="heading">
+      <h1>Sign In</h1>
+    </div>
+    <form [formGroup]="loginForm">
+      <ion-col>
+        <ion-label class="mobile_no">Mobile Number</ion-label>
+        <ion-item class="input">
+          <ion-input  type="Mobile" fill="outline" formControlName="phone_no"></ion-input>
+          <ion-note color="danger" *ngIf="isSubmit && loginForm.get('phone_no')?.errors?.['required']">Enter your
+            Mobile Number</ion-note>
+          <ion-note color="danger" *ngIf="isSubmit && loginForm.get('phone_no')?.errors?.['pattern']">*Enter Your Mobile Number Correctly !</ion-note>
+        </ion-item>
+      </ion-col>
+      <div class="checkbox">
+        <ion-checkbox labelPlacement="end">I’ve read t agreed to User Agreementand <br> Privacy Policy</ion-checkbox>
+      </div>
+    </form>
+    <div class="action-buttons ion-padding">
+      <ion-button (throttledClick)="onsubmit()" size="large" class="login-button">Sign In</ion-button><br>
+    </div>
+    <ion-note>Don't have an account?  <span (click)="signup()">Sign up</span></ion-note>
+
+  </div>
+</ion-content>
